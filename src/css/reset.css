@@ -74,3 +74,22 @@ img {
 .form button:hover {
   background: #3f5ed0;
 }
+
+.load-more {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 100;
+  padding: 10px 20px;
+  background: #4f6edb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.load-more:hover {
+  background: #3f5ed0;
+}
