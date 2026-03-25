@@ -4,6 +4,8 @@ import {
   clearGallery,
   showLoader,
   hideLoader,
+  showLoadMoreBtn,
+  hideLoadMoreBtn,
 } from './js/render-functions.js';
 
 import iziToast from 'izitoast';
@@ -11,8 +13,8 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 const form = document.querySelector('.form');
 const input = form.querySelector('input[name="search-text"]');
-const loadMoreBtn = document.querySelector('.load-more');
 const gallery = document.querySelector('.gallery');
+const loadMoreBtn = document.querySelector('.load-more');
 
 let query = '';
 let page = 1;
@@ -33,7 +35,7 @@ form.addEventListener('submit', async event => {
   }
 
   clearGallery();
-  loadMoreBtn.classList.add('is-hidden');
+  hideLoadMoreBtn();
   showLoader();
 
   try {
@@ -49,16 +51,14 @@ form.addEventListener('submit', async event => {
 
     createGallery(data.hits);
 
-    // Показуємо, скільки всього знайдено
     iziToast.success({
       message: `Hooray! We found ${totalHits} images.`,
     });
 
-    // Якщо є ще сторінки — показуємо кнопку
     if (page * PER_PAGE < totalHits) {
-      loadMoreBtn.classList.remove('is-hidden');
+      showLoadMoreBtn();
     } else {
-      loadMoreBtn.classList.add('is-hidden');
+      hideLoadMoreBtn();
       iziToast.info({
         message: "We're sorry, but you've reached the end of search results.",
       });
@@ -74,48 +74,54 @@ form.addEventListener('submit', async event => {
   }
 });
 
-loadMoreBtn.addEventListener('click', async () => {
-  page += 1;
-  showLoader();
+if (loadMoreBtn) {
+  loadMoreBtn.addEventListener('click', async () => {
+    page += 1;
 
-  try {
-    const data = await getImagesByQuery(query, page);
+    hideLoadMoreBtn();
+    showLoader();
 
-    if (!data.hits.length) {
-      loadMoreBtn.classList.add('is-hidden');
-      iziToast.info({
-        message: "We're sorry, but you've reached the end of search results.",
+    try {
+      const data = await getImagesByQuery(query, page);
+
+      if (!data.hits.length) {
+        hideLoadMoreBtn();
+        iziToast.info({
+          message: "We're sorry, but you've reached the end of search results.",
+        });
+        return;
+      }
+
+      const firstCard = gallery.firstElementChild;
+      const cardHeight = firstCard
+        ? firstCard.getBoundingClientRect().height
+        : 0;
+
+      createGallery(data.hits);
+
+      if (cardHeight) {
+        window.scrollBy({
+          top: cardHeight * 2,
+          behavior: 'smooth',
+        });
+      }
+
+      if (page * PER_PAGE < totalHits) {
+        showLoadMoreBtn();
+      } else {
+        hideLoadMoreBtn();
+        iziToast.info({
+          message: "We're sorry, but you've reached the end of search results.",
+        });
+      }
+    } catch (error) {
+      iziToast.error({
+        message: 'Something went wrong. Please try again.',
       });
-      return;
+      console.error(error);
+      hideLoadMoreBtn();
+    } finally {
+      hideLoader();
     }
-
-    // Висота картки до додавання нових
-    const firstCard = document.querySelector('.gallery a');
-    const cardHeight = firstCard ? firstCard.getBoundingClientRect().height : 0;
-
-    createGallery(data.hits);
-
-    // Плавний скролл на дві висоти картки
-    if (cardHeight) {
-      window.scrollBy({
-        top: cardHeight * 2,
-        behavior: 'smooth',
-      });
-    }
-
-    // Перевіряємо, чи залишилися ще сторінки
-    if (page * PER_PAGE >= totalHits) {
-      loadMoreBtn.classList.add('is-hidden');
-      iziToast.info({
-        message: "We're sorry, but you've reached the end of search results.",
-      });
-    }
-  } catch (error) {
-    iziToast.error({
-      message: 'Something went wrong. Please try again.',
-    });
-    console.error(error);
-  } finally {
-    hideLoader();
-  }
-});
+  });
+}
