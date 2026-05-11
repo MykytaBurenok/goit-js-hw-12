@@ -6,12 +6,12 @@ import SortCss from 'postcss-sort-media-queries';
 
 export default defineConfig(({ command }) => {
   return {
-    base: '/goit-js-hw-12/',  // ← ДОДАЙ ЦЮ СТРОЧКУ!
-    
+    base: '/Image-Search-Gallery/',
+
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },
-    
+
     root: 'src',
     build: {
       sourcemap: true,
