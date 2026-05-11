@@ -1,17 +1,25 @@
 # Image Search Gallery
 
-A responsive image search application built with vanilla JavaScript and Vite. The app uses the Pixabay API to search images by keyword, render results as a gallery, and load more results with smooth scrolling.
+A responsive image search application built with vanilla JavaScript and Vite.
+The app uses the Pixabay API to search images by keyword, render results as a
+gallery, and load more results with smooth scrolling.
 
 ## Live Demo
-[Add your live demo link here](https://example.com)
+
+[live demo](https://example.com)
 
 ## Repository
+
 [Add your repository link here](https://github.com/your-username/your-repo-name)
 
 ## About the Project
-This project was originally created as a JavaScript assignment refined as a portfolio project. The goal was not only to fetch and display API data, but also to improve code structure, user feedback, and interaction flow.
+
+This project was originally created as a JavaScript assignment refined as a
+portfolio project. The goal was not only to fetch and display API data, but also
+to improve code structure, user feedback, and interaction flow.
 
 ## Features
+
 - Search images by keyword.
 - Fetch data from the Pixabay API.
 - Render image cards dynamically.
@@ -21,6 +29,7 @@ This project was originally created as a JavaScript assignment refined as a port
 - Show error and empty-result messages with iziToast.
 
 ## Tech Stack
+
 - HTML5
 - CSS3
 - JavaScript (ES Modules)
@@ -28,9 +37,10 @@ This project was originally created as a JavaScript assignment refined as a port
 - Fetch API
 - Pixabay API
 - iziToast
-- SimpleLightbox 
+- SimpleLightbox
 
 ## What did i do?
+
 - Working with asynchronous JavaScript using `async/await`
 - Handling API requests and pagination
 - Organizing logic into separate modules
@@ -39,29 +49,39 @@ This project was originally created as a JavaScript assignment refined as a port
 - Improving user experience with smooth scrolling and UI feedback
 
 ## Getting Started
+
 ### 1. Clone the repository
+
 ```bash
 git clone https://github.com/your-username/your-repo-name.git
 ```
 
 ### 2. Open the project folder
+
 ```bash
 cd your-repo-name
 ```
 
 ### 3. Install dependencies
+
 ```bash
 npm install
 ```
 
 ### 4. Start the development server
+
 ```bash
 npm run dev
 ```
 
 ## Project Value
-This project demonstrates practical vanilla JavaScript skills beyond static layout work. It shows API integration, modular code organization, event handling, pagination logic, DOM rendering, and user state management in a small but realistic frontend application.
+
+This project demonstrates practical vanilla JavaScript skills beyond static
+layout work. It shows API integration, modular code organization, event
+handling, pagination logic, DOM rendering, and user state management in a small
+but realistic frontend application.
 
 ## Author
+
 **Mykyta Burenok**  
 Junior Frontend Developer (Berlin)
