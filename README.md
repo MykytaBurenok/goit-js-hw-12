@@ -6,11 +6,11 @@ gallery, and load more results with smooth scrolling.
 
 ## Live Demo
 
-[live demo](https://example.com)
+[live demo](https://mykytaburenok.github.io/Image-Search-Gallery/)
 
 ## Repository
 
-[Add your repository link here](https://github.com/your-username/your-repo-name)
+[repository link](https://github.com/MykytaBurenok/Image-Search-Gallery)
 
 ## About the Project
 
