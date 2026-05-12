@@ -13,9 +13,8 @@ gallery, and load more results with smooth scrolling.
 [repository link](https://github.com/MykytaBurenok/Image-Search-Gallery)
 
 ## About the Project
-
-This project was originally created as a JavaScript assignment refined as a
-portfolio project. The goal was not only to fetch and display API data, but also
+This project started as a JavaScript assignment and was later refined into a portfolio-quality application.
+The goal was not only to fetch and display API data, but also
 to improve code structure, user feedback, and interaction flow.
 
 ## Features
@@ -39,7 +38,7 @@ to improve code structure, user feedback, and interaction flow.
 - iziToast
 - SimpleLightbox
 
-## What did i do?
+## Key Skills Demonstrated?
 
 - Working with asynchronous JavaScript using `async/await`
 - Handling API requests and pagination
@@ -84,4 +83,5 @@ but realistic frontend application.
 ## Author
 
 **Mykyta Burenok**  
-Junior Frontend Developer (Berlin)
+Frontend Developer.
+Based in Berlin, Germany.
