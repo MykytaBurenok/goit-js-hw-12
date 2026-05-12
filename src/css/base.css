@@ -60,3 +60,19 @@ main:has(.back-link) {
   height: 200px;
   object-fit: cover;
 }
+
+@media (max-width: 768px) {
+  .form {
+    padding: 20px 24px;
+  }
+
+  .gallery {
+    padding: 24px 24px;
+    gap: 12px 12px;
+  }
+
+  .gallery img {
+    min-width: 100%;
+    height: auto;
+  }
+}

@@ -85,3 +85,5 @@ but realistic frontend application.
 
 **Mykyta Burenok**  
 Junior Frontend Developer (Berlin)
+
+![Homepage](./screenshots/Screenshot%202026-05-12%20195345.png)
